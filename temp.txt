@@ -1,0 +1,18 @@
+Hi:
+1、引入skeleton：
+             <dependency>
+          <groupId>com.sfpay.module</groupId>
+          <artifactId>sypay-mobile-skeleton</artifactId>
+          <version>0.6.9.61</version>
+      </dependency>
+
+2、hessian连接配置（sypay-passport提供接口）：
+                          <remote:proxy request-uri="sypaypassport/memberBCBizMarkService" bean-name="memberBCBizMarkService" interface-name="com.sfpay.sypay.mobile.IMemberBCBizMarkService" />
+
+3、设置转出卡方法：setTransferOutBankCard   ，查询转出卡方法：queryTransferOutBankCard
+
+调用支付中心：银行卡或是余额到个人过渡户     　　　　　　间接到户  （余额，快捷，代扣，鹏华），coum? 退款调用cancel?… 接口是：IXfrToSfpayFacade，IXfrToBankFacade
+调用支付中心：个人过渡户到商户待结算账户     　　　　　　支付继续
+调用支付中心：待结算账户到银行卡或是余额  　　　　　　　　间接到卡
+调用支付中心：待结算账户到个人过渡户      　　　　　　　　间接到卡
+调用支付中心：T+1开调用个人过渡户到银行卡或是余额接口    间接到卡
